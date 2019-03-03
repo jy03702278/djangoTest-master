@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Django Page</title>
+</head>
+<body>
+    <h1>发布会管理</h1>>
+    <!--表单的action属性来指定提交路径-->
+    <form method="post" action="/login_action/">
+        <input name="username" type="text" placeholder="username"><br>
+        <input name="password" type="password" placeholder="password"><br>
+        <button id="btn" type="submit">登录</button><br>
+        <!-- error变量,在login_action函数里，render函数里返回的context字典中的key-->
+        {{ error }}
+        <!--django里，form表单的post提交时，需要将csrf相关参数加进去，这里添加CSRF令牌。如果想忽略掉对csrf的检查，去settings文件里注释掉csrf那一行-->
+        <!--如果想忽略掉对csrf的检查，去settings文件里注释掉csrf那一行-->
+        {% csrf_token%}
+
+    </form>
+</body>
+</html>
